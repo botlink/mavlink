@@ -465,14 +465,14 @@ public final class UavionixAdsbOutDynamic {
          * 0-1: no fix, 2: 2D fix, 3: 3D fix, 4: DGPS, 5: RTK 
          */
         public final Builder gpsfix(Enum... flags) {
-            return gpsfix(EnumValue.create(flags));
+            return gpsfix(EnumValue.<UavionixAdsbOutDynamicGpsFix>create(flags));
         }
 
         /**
          * 0-1: no fix, 2: 2D fix, 3: 3D fix, 4: DGPS, 5: RTK 
          */
         public final Builder gpsfix(Collection<Enum> flags) {
-            return gpsfix(EnumValue.create(flags));
+            return gpsfix(EnumValue.<UavionixAdsbOutDynamicGpsFix>create(flags));
         }
 
         /**
@@ -610,14 +610,14 @@ public final class UavionixAdsbOutDynamic {
          * Emergency status 
          */
         public final Builder emergencystatus(Enum... flags) {
-            return emergencystatus(EnumValue.create(flags));
+            return emergencystatus(EnumValue.<UavionixAdsbEmergencyStatus>create(flags));
         }
 
         /**
          * Emergency status 
          */
         public final Builder emergencystatus(Collection<Enum> flags) {
-            return emergencystatus(EnumValue.create(flags));
+            return emergencystatus(EnumValue.<UavionixAdsbEmergencyStatus>create(flags));
         }
 
         /**
@@ -645,14 +645,14 @@ public final class UavionixAdsbOutDynamic {
          * ADS-B transponder dynamic input state flags 
          */
         public final Builder state(Enum... flags) {
-            return state(EnumValue.create(flags));
+            return state(EnumValue.<UavionixAdsbOutDynamicState>create(flags));
         }
 
         /**
          * ADS-B transponder dynamic input state flags 
          */
         public final Builder state(Collection<Enum> flags) {
-            return state(EnumValue.create(flags));
+            return state(EnumValue.<UavionixAdsbOutDynamicState>create(flags));
         }
 
         /**

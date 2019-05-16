@@ -325,14 +325,14 @@ public final class CommandLong {
          * Command ID (of command to send). 
          */
         public final Builder command(Enum... flags) {
-            return command(EnumValue.create(flags));
+            return command(EnumValue.<MavCmd>create(flags));
         }
 
         /**
          * Command ID (of command to send). 
          */
         public final Builder command(Collection<Enum> flags) {
-            return command(EnumValue.create(flags));
+            return command(EnumValue.<MavCmd>create(flags));
         }
 
         /**

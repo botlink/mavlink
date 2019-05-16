@@ -404,14 +404,14 @@ public final class Odometry {
          * Coordinate frame of reference for the pose data. 
          */
         public final Builder frameId(Enum... flags) {
-            return frameId(EnumValue.create(flags));
+            return frameId(EnumValue.<MavFrame>create(flags));
         }
 
         /**
          * Coordinate frame of reference for the pose data. 
          */
         public final Builder frameId(Collection<Enum> flags) {
-            return frameId(EnumValue.create(flags));
+            return frameId(EnumValue.<MavFrame>create(flags));
         }
 
         /**
@@ -439,14 +439,14 @@ public final class Odometry {
          * Coordinate frame of reference for the velocity in free space (twist) data. 
          */
         public final Builder childFrameId(Enum... flags) {
-            return childFrameId(EnumValue.create(flags));
+            return childFrameId(EnumValue.<MavFrame>create(flags));
         }
 
         /**
          * Coordinate frame of reference for the velocity in free space (twist) data. 
          */
         public final Builder childFrameId(Collection<Enum> flags) {
-            return childFrameId(EnumValue.create(flags));
+            return childFrameId(EnumValue.<MavFrame>create(flags));
         }
 
         /**

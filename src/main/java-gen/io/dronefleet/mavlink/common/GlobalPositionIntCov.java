@@ -306,14 +306,14 @@ public final class GlobalPositionIntCov {
          * Class id of the estimator this estimate originated from. 
          */
         public final Builder estimatorType(Enum... flags) {
-            return estimatorType(EnumValue.create(flags));
+            return estimatorType(EnumValue.<MavEstimatorType>create(flags));
         }
 
         /**
          * Class id of the estimator this estimate originated from. 
          */
         public final Builder estimatorType(Collection<Enum> flags) {
-            return estimatorType(EnumValue.create(flags));
+            return estimatorType(EnumValue.<MavEstimatorType>create(flags));
         }
 
         /**

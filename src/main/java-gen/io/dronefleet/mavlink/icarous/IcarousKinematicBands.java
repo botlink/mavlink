@@ -419,14 +419,14 @@ public final class IcarousKinematicBands {
          * See the TRACK_BAND_TYPES enum. 
          */
         public final Builder type1(Enum... flags) {
-            return type1(EnumValue.create(flags));
+            return type1(EnumValue.<IcarousTrackBandTypes>create(flags));
         }
 
         /**
          * See the TRACK_BAND_TYPES enum. 
          */
         public final Builder type1(Collection<Enum> flags) {
-            return type1(EnumValue.create(flags));
+            return type1(EnumValue.<IcarousTrackBandTypes>create(flags));
         }
 
         /**
@@ -480,14 +480,14 @@ public final class IcarousKinematicBands {
          * See the TRACK_BAND_TYPES enum. 
          */
         public final Builder type2(Enum... flags) {
-            return type2(EnumValue.create(flags));
+            return type2(EnumValue.<IcarousTrackBandTypes>create(flags));
         }
 
         /**
          * See the TRACK_BAND_TYPES enum. 
          */
         public final Builder type2(Collection<Enum> flags) {
-            return type2(EnumValue.create(flags));
+            return type2(EnumValue.<IcarousTrackBandTypes>create(flags));
         }
 
         /**
@@ -541,14 +541,14 @@ public final class IcarousKinematicBands {
          * See the TRACK_BAND_TYPES enum. 
          */
         public final Builder type3(Enum... flags) {
-            return type3(EnumValue.create(flags));
+            return type3(EnumValue.<IcarousTrackBandTypes>create(flags));
         }
 
         /**
          * See the TRACK_BAND_TYPES enum. 
          */
         public final Builder type3(Collection<Enum> flags) {
-            return type3(EnumValue.create(flags));
+            return type3(EnumValue.<IcarousTrackBandTypes>create(flags));
         }
 
         /**
@@ -602,14 +602,14 @@ public final class IcarousKinematicBands {
          * See the TRACK_BAND_TYPES enum. 
          */
         public final Builder type4(Enum... flags) {
-            return type4(EnumValue.create(flags));
+            return type4(EnumValue.<IcarousTrackBandTypes>create(flags));
         }
 
         /**
          * See the TRACK_BAND_TYPES enum. 
          */
         public final Builder type4(Collection<Enum> flags) {
-            return type4(EnumValue.create(flags));
+            return type4(EnumValue.<IcarousTrackBandTypes>create(flags));
         }
 
         /**
@@ -663,14 +663,14 @@ public final class IcarousKinematicBands {
          * See the TRACK_BAND_TYPES enum. 
          */
         public final Builder type5(Enum... flags) {
-            return type5(EnumValue.create(flags));
+            return type5(EnumValue.<IcarousTrackBandTypes>create(flags));
         }
 
         /**
          * See the TRACK_BAND_TYPES enum. 
          */
         public final Builder type5(Collection<Enum> flags) {
-            return type5(EnumValue.create(flags));
+            return type5(EnumValue.<IcarousTrackBandTypes>create(flags));
         }
 
         /**

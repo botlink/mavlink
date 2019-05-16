@@ -220,14 +220,14 @@ public final class ObstacleDistance {
          * Class id of the distance sensor type. 
          */
         public final Builder sensorType(Enum... flags) {
-            return sensorType(EnumValue.create(flags));
+            return sensorType(EnumValue.<MavDistanceSensor>create(flags));
         }
 
         /**
          * Class id of the distance sensor type. 
          */
         public final Builder sensorType(Collection<Enum> flags) {
-            return sensorType(EnumValue.create(flags));
+            return sensorType(EnumValue.<MavDistanceSensor>create(flags));
         }
 
         /**

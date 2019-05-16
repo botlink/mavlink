@@ -184,14 +184,14 @@ public final class GoproSetRequest {
          * Command ID. 
          */
         public final Builder cmdId(Enum... flags) {
-            return cmdId(EnumValue.create(flags));
+            return cmdId(EnumValue.<GoproCommand>create(flags));
         }
 
         /**
          * Command ID. 
          */
         public final Builder cmdId(Collection<Enum> flags) {
-            return cmdId(EnumValue.create(flags));
+            return cmdId(EnumValue.<GoproCommand>create(flags));
         }
 
         /**

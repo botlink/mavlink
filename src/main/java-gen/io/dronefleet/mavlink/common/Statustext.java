@@ -120,14 +120,14 @@ public final class Statustext {
          * Severity of status. Relies on the definitions within RFC-5424. 
          */
         public final Builder severity(Enum... flags) {
-            return severity(EnumValue.create(flags));
+            return severity(EnumValue.<MavSeverity>create(flags));
         }
 
         /**
          * Severity of status. Relies on the definitions within RFC-5424. 
          */
         public final Builder severity(Collection<Enum> flags) {
-            return severity(EnumValue.create(flags));
+            return severity(EnumValue.<MavSeverity>create(flags));
         }
 
         /**

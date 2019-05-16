@@ -139,14 +139,14 @@ public final class GoproHeartbeat {
          * Status. 
          */
         public final Builder status(Enum... flags) {
-            return status(EnumValue.create(flags));
+            return status(EnumValue.<GoproHeartbeatStatus>create(flags));
         }
 
         /**
          * Status. 
          */
         public final Builder status(Collection<Enum> flags) {
-            return status(EnumValue.create(flags));
+            return status(EnumValue.<GoproHeartbeatStatus>create(flags));
         }
 
         /**
@@ -174,14 +174,14 @@ public final class GoproHeartbeat {
          * Current capture mode. 
          */
         public final Builder captureMode(Enum... flags) {
-            return captureMode(EnumValue.create(flags));
+            return captureMode(EnumValue.<GoproCaptureMode>create(flags));
         }
 
         /**
          * Current capture mode. 
          */
         public final Builder captureMode(Collection<Enum> flags) {
-            return captureMode(EnumValue.create(flags));
+            return captureMode(EnumValue.<GoproCaptureMode>create(flags));
         }
 
         /**
@@ -209,14 +209,14 @@ public final class GoproHeartbeat {
          * Additional status bits. 
          */
         public final Builder flags(Enum... flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<GoproHeartbeatFlags>create(flags));
         }
 
         /**
          * Additional status bits. 
          */
         public final Builder flags(Collection<Enum> flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<GoproHeartbeatFlags>create(flags));
         }
 
         public final GoproHeartbeat build() {

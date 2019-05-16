@@ -11,11 +11,6 @@ import java.util.Map;
 
 public final class CommonDialect extends AbstractMavlinkDialect {
     /**
-     * A list of all of the dependencies of this dialect.
-     */
-    private static final List<MavlinkDialect> dependencies = Collections.emptyList();
-
-    /**
      * A list of all message types supported by this dialect.
      */
     private static final Map<Integer, Class> messages = new UnmodifiableMapBuilder<Integer, Class>()
@@ -191,6 +186,14 @@ public final class CommonDialect extends AbstractMavlinkDialect {
             .put(365, StatustextLong.class)
             .put(9000, WheelDistance.class)
             .build();
+
+    /**
+     * A list of all of the dependencies of this dialect.
+     */
+    private static final List<MavlinkDialect> dependencies = Collections.emptyList();
+
+    static {
+    }
 
     public CommonDialect() {
         super("common", dependencies, messages);

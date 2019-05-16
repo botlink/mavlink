@@ -439,14 +439,14 @@ public final class CommandIntStamped {
          * The coordinate system of the COMMAND, as defined by {@link io.dronefleet.mavlink.common.MavFrame MAV_FRAME} enum 
          */
         public final Builder frame(Enum... flags) {
-            return frame(EnumValue.create(flags));
+            return frame(EnumValue.<MavFrame>create(flags));
         }
 
         /**
          * The coordinate system of the COMMAND, as defined by {@link io.dronefleet.mavlink.common.MavFrame MAV_FRAME} enum 
          */
         public final Builder frame(Collection<Enum> flags) {
-            return frame(EnumValue.create(flags));
+            return frame(EnumValue.<MavFrame>create(flags));
         }
 
         /**
@@ -474,14 +474,14 @@ public final class CommandIntStamped {
          * The scheduled action for the mission item, as defined by {@link io.dronefleet.mavlink.common.MavCmd MAV_CMD} enum 
          */
         public final Builder command(Enum... flags) {
-            return command(EnumValue.create(flags));
+            return command(EnumValue.<MavCmd>create(flags));
         }
 
         /**
          * The scheduled action for the mission item, as defined by {@link io.dronefleet.mavlink.common.MavCmd MAV_CMD} enum 
          */
         public final Builder command(Collection<Enum> flags) {
-            return command(EnumValue.create(flags));
+            return command(EnumValue.<MavCmd>create(flags));
         }
 
         /**

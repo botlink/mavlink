@@ -172,14 +172,14 @@ public final class CameraSettings {
          * Camera mode 
          */
         public final Builder modeId(Enum... flags) {
-            return modeId(EnumValue.create(flags));
+            return modeId(EnumValue.<CameraMode>create(flags));
         }
 
         /**
          * Camera mode 
          */
         public final Builder modeId(Collection<Enum> flags) {
-            return modeId(EnumValue.create(flags));
+            return modeId(EnumValue.<CameraMode>create(flags));
         }
 
         /**

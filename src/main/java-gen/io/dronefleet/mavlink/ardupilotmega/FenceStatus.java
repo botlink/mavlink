@@ -184,14 +184,14 @@ public final class FenceStatus {
          * Last breach type. 
          */
         public final Builder breachType(Enum... flags) {
-            return breachType(EnumValue.create(flags));
+            return breachType(EnumValue.<FenceBreach>create(flags));
         }
 
         /**
          * Last breach type. 
          */
         public final Builder breachType(Collection<Enum> flags) {
-            return breachType(EnumValue.create(flags));
+            return breachType(EnumValue.<FenceBreach>create(flags));
         }
 
         /**

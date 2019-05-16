@@ -310,14 +310,14 @@ public final class CameraStatus {
          * Event type. 
          */
         public final Builder eventId(Enum... flags) {
-            return eventId(EnumValue.create(flags));
+            return eventId(EnumValue.<CameraStatusTypes>create(flags));
         }
 
         /**
          * Event type. 
          */
         public final Builder eventId(Collection<Enum> flags) {
-            return eventId(EnumValue.create(flags));
+            return eventId(EnumValue.<CameraStatusTypes>create(flags));
         }
 
         /**

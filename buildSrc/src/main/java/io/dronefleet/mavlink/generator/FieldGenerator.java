@@ -163,7 +163,7 @@ public class FieldGenerator implements Comparable<FieldGenerator> {
                             .addJavadoc(javadoc())
                             .addModifiers(Modifier.PUBLIC, Modifier.FINAL)
                             .addParameter(Enum[].class, "flags")
-                            .addStatement("return $1N($2T.create(flags))", nameCamelCase, ENUM_VALUE)
+                            .addStatement("return $1N($2T.<$3T>create(flags))", nameCamelCase, ENUM_VALUE, enumType())
                             .returns(className)
                             .build(),
 
@@ -171,7 +171,7 @@ public class FieldGenerator implements Comparable<FieldGenerator> {
                             .addJavadoc(javadoc())
                             .addModifiers(Modifier.PUBLIC, Modifier.FINAL)
                             .addParameter(ParameterizedTypeName.get(Collection.class, Enum.class), "flags")
-                            .addStatement("return $1N($2T.create(flags))", nameCamelCase, ENUM_VALUE)
+                            .addStatement("return $1N($2T.<$3T>create(flags))", nameCamelCase, ENUM_VALUE, enumType())
                             .returns(className)
                             .build()
             );

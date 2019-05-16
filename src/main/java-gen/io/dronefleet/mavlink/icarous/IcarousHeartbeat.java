@@ -96,14 +96,14 @@ public final class IcarousHeartbeat {
          * See the FMS_STATE enum. 
          */
         public final Builder status(Enum... flags) {
-            return status(EnumValue.create(flags));
+            return status(EnumValue.<IcarousFmsState>create(flags));
         }
 
         /**
          * See the FMS_STATE enum. 
          */
         public final Builder status(Collection<Enum> flags) {
-            return status(EnumValue.create(flags));
+            return status(EnumValue.<IcarousFmsState>create(flags));
         }
 
         public final IcarousHeartbeat build() {

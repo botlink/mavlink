@@ -184,14 +184,14 @@ public final class RemoteLogDataBlock {
          * Log data block sequence number. 
          */
         public final Builder seqno(Enum... flags) {
-            return seqno(EnumValue.create(flags));
+            return seqno(EnumValue.<MavRemoteLogDataBlockCommands>create(flags));
         }
 
         /**
          * Log data block sequence number. 
          */
         public final Builder seqno(Collection<Enum> flags) {
-            return seqno(EnumValue.create(flags));
+            return seqno(EnumValue.<MavRemoteLogDataBlockCommands>create(flags));
         }
 
         /**

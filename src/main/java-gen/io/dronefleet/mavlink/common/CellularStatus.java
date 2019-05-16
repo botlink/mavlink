@@ -226,14 +226,14 @@ public final class CellularStatus {
          * Status bitmap 
          */
         public final Builder status(Enum... flags) {
-            return status(EnumValue.create(flags));
+            return status(EnumValue.<CellularNetworkStatusFlag>create(flags));
         }
 
         /**
          * Status bitmap 
          */
         public final Builder status(Collection<Enum> flags) {
-            return status(EnumValue.create(flags));
+            return status(EnumValue.<CellularNetworkStatusFlag>create(flags));
         }
 
         /**
@@ -261,14 +261,14 @@ public final class CellularStatus {
          * Cellular network radio type: gsm, cdma, lte... 
          */
         public final Builder type(Enum... flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<CellularNetworkRadioType>create(flags));
         }
 
         /**
          * Cellular network radio type: gsm, cdma, lte... 
          */
         public final Builder type(Collection<Enum> flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<CellularNetworkRadioType>create(flags));
         }
 
         /**

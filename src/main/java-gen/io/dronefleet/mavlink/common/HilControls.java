@@ -418,14 +418,14 @@ public final class HilControls {
          * System mode. 
          */
         public final Builder mode(Enum... flags) {
-            return mode(EnumValue.create(flags));
+            return mode(EnumValue.<MavMode>create(flags));
         }
 
         /**
          * System mode. 
          */
         public final Builder mode(Collection<Enum> flags) {
-            return mode(EnumValue.create(flags));
+            return mode(EnumValue.<MavMode>create(flags));
         }
 
         /**

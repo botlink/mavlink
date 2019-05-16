@@ -393,14 +393,14 @@ public final class CommandLongStamped {
          * Command ID, as defined by {@link io.dronefleet.mavlink.common.MavCmd MAV_CMD} enum. 
          */
         public final Builder command(Enum... flags) {
-            return command(EnumValue.create(flags));
+            return command(EnumValue.<MavCmd>create(flags));
         }
 
         /**
          * Command ID, as defined by {@link io.dronefleet.mavlink.common.MavCmd MAV_CMD} enum. 
          */
         public final Builder command(Collection<Enum> flags) {
-            return command(EnumValue.create(flags));
+            return command(EnumValue.<MavCmd>create(flags));
         }
 
         /**

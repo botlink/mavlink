@@ -8,19 +8,11 @@ import io.dronefleet.mavlink.uavionix.UavionixDialect;
 import io.dronefleet.mavlink.util.UnmodifiableMapBuilder;
 import java.lang.Class;
 import java.lang.Integer;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public final class ArdupilotmegaDialect extends AbstractMavlinkDialect {
-    /**
-     * A list of all of the dependencies of this dialect.
-     */
-    private static final List<MavlinkDialect> dependencies = Arrays.asList(
-            new CommonDialect(),
-            new UavionixDialect(),
-            new IcarousDialect());
-
     /**
      * A list of all message types supported by this dialect.
      */
@@ -86,6 +78,17 @@ public final class ArdupilotmegaDialect extends AbstractMavlinkDialect {
             .put(11031, EscTelemetry5To8.class)
             .put(11032, EscTelemetry9To12.class)
             .build();
+
+    /**
+     * A list of all of the dependencies of this dialect.
+     */
+    private static final List<MavlinkDialect> dependencies = new ArrayList<>();
+
+    static {
+        dependencies.add(new CommonDialect());
+        dependencies.add(new UavionixDialect());
+        dependencies.add(new IcarousDialect());
+    }
 
     public ArdupilotmegaDialect() {
         super("ardupilotmega", dependencies, messages);

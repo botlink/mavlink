@@ -368,14 +368,14 @@ public final class CommandInt {
          * The coordinate system of the COMMAND. 
          */
         public final Builder frame(Enum... flags) {
-            return frame(EnumValue.create(flags));
+            return frame(EnumValue.<MavFrame>create(flags));
         }
 
         /**
          * The coordinate system of the COMMAND. 
          */
         public final Builder frame(Collection<Enum> flags) {
-            return frame(EnumValue.create(flags));
+            return frame(EnumValue.<MavFrame>create(flags));
         }
 
         /**
@@ -403,14 +403,14 @@ public final class CommandInt {
          * The scheduled action for the mission item. 
          */
         public final Builder command(Enum... flags) {
-            return command(EnumValue.create(flags));
+            return command(EnumValue.<MavCmd>create(flags));
         }
 
         /**
          * The scheduled action for the mission item. 
          */
         public final Builder command(Collection<Enum> flags) {
-            return command(EnumValue.create(flags));
+            return command(EnumValue.<MavCmd>create(flags));
         }
 
         /**

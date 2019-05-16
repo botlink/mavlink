@@ -162,14 +162,14 @@ public final class PowerStatus {
          * Bitmap of power supply status flags. 
          */
         public final Builder flags(Enum... flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<MavPowerStatus>create(flags));
         }
 
         /**
          * Bitmap of power supply status flags. 
          */
         public final Builder flags(Collection<Enum> flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<MavPowerStatus>create(flags));
         }
 
         public final PowerStatus build() {

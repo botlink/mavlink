@@ -471,14 +471,14 @@ public final class GpsInput {
          * Bitmap indicating which GPS input flags fields to ignore. All other fields must be provided. 
          */
         public final Builder ignoreFlags(Enum... flags) {
-            return ignoreFlags(EnumValue.create(flags));
+            return ignoreFlags(EnumValue.<GpsInputIgnoreFlags>create(flags));
         }
 
         /**
          * Bitmap indicating which GPS input flags fields to ignore. All other fields must be provided. 
          */
         public final Builder ignoreFlags(Collection<Enum> flags) {
-            return ignoreFlags(EnumValue.create(flags));
+            return ignoreFlags(EnumValue.<GpsInputIgnoreFlags>create(flags));
         }
 
         /**

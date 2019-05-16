@@ -275,14 +275,14 @@ public final class UavionixAdsbOutCfg {
          * Transmitting vehicle type. See {@link io.dronefleet.mavlink.common.AdsbEmitterType ADSB_EMITTER_TYPE} enum 
          */
         public final Builder emittertype(Enum... flags) {
-            return emittertype(EnumValue.create(flags));
+            return emittertype(EnumValue.<AdsbEmitterType>create(flags));
         }
 
         /**
          * Transmitting vehicle type. See {@link io.dronefleet.mavlink.common.AdsbEmitterType ADSB_EMITTER_TYPE} enum 
          */
         public final Builder emittertype(Collection<Enum> flags) {
-            return emittertype(EnumValue.create(flags));
+            return emittertype(EnumValue.<AdsbEmitterType>create(flags));
         }
 
         /**
@@ -310,14 +310,14 @@ public final class UavionixAdsbOutCfg {
          * Aircraft length and width encoding (table 2-35 of DO-282B) 
          */
         public final Builder aircraftsize(Enum... flags) {
-            return aircraftsize(EnumValue.create(flags));
+            return aircraftsize(EnumValue.<UavionixAdsbOutCfgAircraftSize>create(flags));
         }
 
         /**
          * Aircraft length and width encoding (table 2-35 of DO-282B) 
          */
         public final Builder aircraftsize(Collection<Enum> flags) {
-            return aircraftsize(EnumValue.create(flags));
+            return aircraftsize(EnumValue.<UavionixAdsbOutCfgAircraftSize>create(flags));
         }
 
         /**
@@ -345,14 +345,14 @@ public final class UavionixAdsbOutCfg {
          * GPS antenna lateral offset (table 2-36 of DO-282B) 
          */
         public final Builder gpsoffsetlat(Enum... flags) {
-            return gpsoffsetlat(EnumValue.create(flags));
+            return gpsoffsetlat(EnumValue.<UavionixAdsbOutCfgGpsOffsetLat>create(flags));
         }
 
         /**
          * GPS antenna lateral offset (table 2-36 of DO-282B) 
          */
         public final Builder gpsoffsetlat(Collection<Enum> flags) {
-            return gpsoffsetlat(EnumValue.create(flags));
+            return gpsoffsetlat(EnumValue.<UavionixAdsbOutCfgGpsOffsetLat>create(flags));
         }
 
         /**
@@ -383,7 +383,7 @@ public final class UavionixAdsbOutCfg {
          * and add one] (table 2-37 DO-282B) 
          */
         public final Builder gpsoffsetlon(Enum... flags) {
-            return gpsoffsetlon(EnumValue.create(flags));
+            return gpsoffsetlon(EnumValue.<UavionixAdsbOutCfgGpsOffsetLon>create(flags));
         }
 
         /**
@@ -391,7 +391,7 @@ public final class UavionixAdsbOutCfg {
          * and add one] (table 2-37 DO-282B) 
          */
         public final Builder gpsoffsetlon(Collection<Enum> flags) {
-            return gpsoffsetlon(EnumValue.create(flags));
+            return gpsoffsetlon(EnumValue.<UavionixAdsbOutCfgGpsOffsetLon>create(flags));
         }
 
         /**
@@ -432,14 +432,14 @@ public final class UavionixAdsbOutCfg {
          * ADS-B transponder reciever and transmit enable flags 
          */
         public final Builder rfselect(Enum... flags) {
-            return rfselect(EnumValue.create(flags));
+            return rfselect(EnumValue.<UavionixAdsbOutRfSelect>create(flags));
         }
 
         /**
          * ADS-B transponder reciever and transmit enable flags 
          */
         public final Builder rfselect(Collection<Enum> flags) {
-            return rfselect(EnumValue.create(flags));
+            return rfselect(EnumValue.<UavionixAdsbOutRfSelect>create(flags));
         }
 
         public final UavionixAdsbOutCfg build() {

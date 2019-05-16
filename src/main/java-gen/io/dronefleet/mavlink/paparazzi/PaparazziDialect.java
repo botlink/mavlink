@@ -6,17 +6,11 @@ import io.dronefleet.mavlink.common.CommonDialect;
 import io.dronefleet.mavlink.util.UnmodifiableMapBuilder;
 import java.lang.Class;
 import java.lang.Integer;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public final class PaparazziDialect extends AbstractMavlinkDialect {
-    /**
-     * A list of all of the dependencies of this dialect.
-     */
-    private static final List<MavlinkDialect> dependencies = Arrays.asList(
-            new CommonDialect());
-
     /**
      * A list of all message types supported by this dialect.
      */
@@ -27,6 +21,15 @@ public final class PaparazziDialect extends AbstractMavlinkDialect {
             .put(183, ScriptCount.class)
             .put(184, ScriptCurrent.class)
             .build();
+
+    /**
+     * A list of all of the dependencies of this dialect.
+     */
+    private static final List<MavlinkDialect> dependencies = new ArrayList<>();
+
+    static {
+        dependencies.add(new CommonDialect());
+    }
 
     public PaparazziDialect() {
         super("paparazzi", dependencies, messages);

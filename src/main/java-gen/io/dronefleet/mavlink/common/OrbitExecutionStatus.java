@@ -240,14 +240,14 @@ public final class OrbitExecutionStatus {
          * The coordinate system of the fields: x, y, z. 
          */
         public final Builder frame(Enum... flags) {
-            return frame(EnumValue.create(flags));
+            return frame(EnumValue.<MavFrame>create(flags));
         }
 
         /**
          * The coordinate system of the fields: x, y, z. 
          */
         public final Builder frame(Collection<Enum> flags) {
-            return frame(EnumValue.create(flags));
+            return frame(EnumValue.<MavFrame>create(flags));
         }
 
         /**

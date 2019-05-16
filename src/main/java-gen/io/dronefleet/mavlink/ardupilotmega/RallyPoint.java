@@ -402,14 +402,14 @@ public final class RallyPoint {
          * Configuration flags. 
          */
         public final Builder flags(Enum... flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<RallyFlags>create(flags));
         }
 
         /**
          * Configuration flags. 
          */
         public final Builder flags(Collection<Enum> flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<RallyFlags>create(flags));
         }
 
         public final RallyPoint build() {

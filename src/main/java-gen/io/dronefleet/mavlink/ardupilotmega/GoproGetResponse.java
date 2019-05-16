@@ -139,14 +139,14 @@ public final class GoproGetResponse {
          * Command ID. 
          */
         public final Builder cmdId(Enum... flags) {
-            return cmdId(EnumValue.create(flags));
+            return cmdId(EnumValue.<GoproCommand>create(flags));
         }
 
         /**
          * Command ID. 
          */
         public final Builder cmdId(Collection<Enum> flags) {
-            return cmdId(EnumValue.create(flags));
+            return cmdId(EnumValue.<GoproCommand>create(flags));
         }
 
         /**
@@ -174,14 +174,14 @@ public final class GoproGetResponse {
          * Status. 
          */
         public final Builder status(Enum... flags) {
-            return status(EnumValue.create(flags));
+            return status(EnumValue.<GoproRequestStatus>create(flags));
         }
 
         /**
          * Status. 
          */
         public final Builder status(Collection<Enum> flags) {
-            return status(EnumValue.create(flags));
+            return status(EnumValue.<GoproRequestStatus>create(flags));
         }
 
         /**

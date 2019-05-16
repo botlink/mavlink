@@ -202,14 +202,14 @@ public final class SerialControl {
          * Serial control device type. 
          */
         public final Builder device(Enum... flags) {
-            return device(EnumValue.create(flags));
+            return device(EnumValue.<SerialControlDev>create(flags));
         }
 
         /**
          * Serial control device type. 
          */
         public final Builder device(Collection<Enum> flags) {
-            return device(EnumValue.create(flags));
+            return device(EnumValue.<SerialControlDev>create(flags));
         }
 
         /**
@@ -237,14 +237,14 @@ public final class SerialControl {
          * Bitmap of serial control flags. 
          */
         public final Builder flags(Enum... flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<SerialControlFlag>create(flags));
         }
 
         /**
          * Bitmap of serial control flags. 
          */
         public final Builder flags(Collection<Enum> flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<SerialControlFlag>create(flags));
         }
 
         /**

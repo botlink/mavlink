@@ -363,14 +363,14 @@ public final class DistanceSensor {
          * Type of distance sensor. 
          */
         public final Builder type(Enum... flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<MavDistanceSensor>create(flags));
         }
 
         /**
          * Type of distance sensor. 
          */
         public final Builder type(Collection<Enum> flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<MavDistanceSensor>create(flags));
         }
 
         /**
@@ -417,7 +417,7 @@ public final class DistanceSensor {
          * ROTATION_NONE, left-facing: ROTATION_YAW_90, right-facing: ROTATION_YAW_270 
          */
         public final Builder orientation(Enum... flags) {
-            return orientation(EnumValue.create(flags));
+            return orientation(EnumValue.<MavSensorOrientation>create(flags));
         }
 
         /**
@@ -426,7 +426,7 @@ public final class DistanceSensor {
          * ROTATION_NONE, left-facing: ROTATION_YAW_90, right-facing: ROTATION_YAW_270 
          */
         public final Builder orientation(Collection<Enum> flags) {
-            return orientation(EnumValue.create(flags));
+            return orientation(EnumValue.<MavSensorOrientation>create(flags));
         }
 
         /**

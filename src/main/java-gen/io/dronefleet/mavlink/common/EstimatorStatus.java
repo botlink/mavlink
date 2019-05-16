@@ -302,14 +302,14 @@ public final class EstimatorStatus {
          * Bitmap indicating which EKF outputs are valid. 
          */
         public final Builder flags(Enum... flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<EstimatorStatusFlags>create(flags));
         }
 
         /**
          * Bitmap indicating which EKF outputs are valid. 
          */
         public final Builder flags(Collection<Enum> flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<EstimatorStatusFlags>create(flags));
         }
 
         /**

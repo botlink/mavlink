@@ -1,9 +1,6 @@
 package io.dronefleet.mavlink;
 
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.*;
 
 public class AbstractMavlinkDialect implements MavlinkDialect {
 
@@ -55,12 +52,12 @@ public class AbstractMavlinkDialect implements MavlinkDialect {
 
     @Override
     public List<Class> messageTypes() {
-        return Stream.concat(
-                messages.values().stream(),
-                dependencies.stream()
-                        .map(MavlinkDialect::messageTypes)
-                        .flatMap(List::stream))
-                .distinct()
-                .collect(Collectors.toList());
+        Set<Class> messageTypes = new HashSet<>();
+        messageTypes.addAll(messages.values());
+        for (MavlinkDialect dep : dependencies) {
+            messageTypes.addAll(dep.messageTypes());
+        }
+        List<Class> messageTypesList = new ArrayList<>(messageTypes);
+        return messageTypesList;
     }
 }

@@ -206,14 +206,14 @@ public final class CommandAck {
          * Command ID (of acknowledged command). 
          */
         public final Builder command(Enum... flags) {
-            return command(EnumValue.create(flags));
+            return command(EnumValue.<MavCmd>create(flags));
         }
 
         /**
          * Command ID (of acknowledged command). 
          */
         public final Builder command(Collection<Enum> flags) {
-            return command(EnumValue.create(flags));
+            return command(EnumValue.<MavCmd>create(flags));
         }
 
         /**
@@ -241,14 +241,14 @@ public final class CommandAck {
          * Result of command. 
          */
         public final Builder result(Enum... flags) {
-            return result(EnumValue.create(flags));
+            return result(EnumValue.<MavResult>create(flags));
         }
 
         /**
          * Result of command. 
          */
         public final Builder result(Collection<Enum> flags) {
-            return result(EnumValue.create(flags));
+            return result(EnumValue.<MavResult>create(flags));
         }
 
         /**

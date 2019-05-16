@@ -192,14 +192,14 @@ public final class ParamExtAck {
          * Parameter type. 
          */
         public final Builder paramType(Enum... flags) {
-            return paramType(EnumValue.create(flags));
+            return paramType(EnumValue.<MavParamExtType>create(flags));
         }
 
         /**
          * Parameter type. 
          */
         public final Builder paramType(Collection<Enum> flags) {
-            return paramType(EnumValue.create(flags));
+            return paramType(EnumValue.<MavParamExtType>create(flags));
         }
 
         /**
@@ -227,14 +227,14 @@ public final class ParamExtAck {
          * Result code. 
          */
         public final Builder paramResult(Enum... flags) {
-            return paramResult(EnumValue.create(flags));
+            return paramResult(EnumValue.<ParamAck>create(flags));
         }
 
         /**
          * Result code. 
          */
         public final Builder paramResult(Collection<Enum> flags) {
-            return paramResult(EnumValue.create(flags));
+            return paramResult(EnumValue.<ParamAck>create(flags));
         }
 
         public final ParamExtAck build() {

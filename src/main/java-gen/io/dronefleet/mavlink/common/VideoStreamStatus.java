@@ -258,14 +258,14 @@ public final class VideoStreamStatus {
          * Bitmap of stream status flags 
          */
         public final Builder flags(Enum... flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<VideoStreamStatusFlags>create(flags));
         }
 
         /**
          * Bitmap of stream status flags 
          */
         public final Builder flags(Collection<Enum> flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<VideoStreamStatusFlags>create(flags));
         }
 
         /**

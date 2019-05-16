@@ -338,14 +338,14 @@ public final class Gps2Raw {
          * GPS fix type. 
          */
         public final Builder fixType(Enum... flags) {
-            return fixType(EnumValue.create(flags));
+            return fixType(EnumValue.<GpsFixType>create(flags));
         }
 
         /**
          * GPS fix type. 
          */
         public final Builder fixType(Collection<Enum> flags) {
-            return fixType(EnumValue.create(flags));
+            return fixType(EnumValue.<GpsFixType>create(flags));
         }
 
         /**

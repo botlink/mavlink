@@ -232,14 +232,14 @@ public final class GsmLinkStatus {
          * GSM modem used 
          */
         public final Builder gsmModemType(Enum... flags) {
-            return gsmModemType(EnumValue.create(flags));
+            return gsmModemType(EnumValue.<GsmModemType>create(flags));
         }
 
         /**
          * GSM modem used 
          */
         public final Builder gsmModemType(Collection<Enum> flags) {
-            return gsmModemType(EnumValue.create(flags));
+            return gsmModemType(EnumValue.<GsmModemType>create(flags));
         }
 
         /**
@@ -267,14 +267,14 @@ public final class GsmLinkStatus {
          * GSM link type 
          */
         public final Builder gsmLinkType(Enum... flags) {
-            return gsmLinkType(EnumValue.create(flags));
+            return gsmLinkType(EnumValue.<GsmLinkType>create(flags));
         }
 
         /**
          * GSM link type 
          */
         public final Builder gsmLinkType(Collection<Enum> flags) {
-            return gsmLinkType(EnumValue.create(flags));
+            return gsmLinkType(EnumValue.<GsmLinkType>create(flags));
         }
 
         /**

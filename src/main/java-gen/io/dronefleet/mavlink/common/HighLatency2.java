@@ -653,14 +653,14 @@ public final class HighLatency2 {
          * Type of the MAV (quadrotor, helicopter, etc.) 
          */
         public final Builder type(Enum... flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<MavType>create(flags));
         }
 
         /**
          * Type of the MAV (quadrotor, helicopter, etc.) 
          */
         public final Builder type(Collection<Enum> flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<MavType>create(flags));
         }
 
         /**
@@ -688,14 +688,14 @@ public final class HighLatency2 {
          * Autopilot type / class. 
          */
         public final Builder autopilot(Enum... flags) {
-            return autopilot(EnumValue.create(flags));
+            return autopilot(EnumValue.<MavAutopilot>create(flags));
         }
 
         /**
          * Autopilot type / class. 
          */
         public final Builder autopilot(Collection<Enum> flags) {
-            return autopilot(EnumValue.create(flags));
+            return autopilot(EnumValue.<MavAutopilot>create(flags));
         }
 
         /**
@@ -990,14 +990,14 @@ public final class HighLatency2 {
          * Bitmap of failure flags. 
          */
         public final Builder failureFlags(Enum... flags) {
-            return failureFlags(EnumValue.create(flags));
+            return failureFlags(EnumValue.<HlFailureFlag>create(flags));
         }
 
         /**
          * Bitmap of failure flags. 
          */
         public final Builder failureFlags(Collection<Enum> flags) {
-            return failureFlags(EnumValue.create(flags));
+            return failureFlags(EnumValue.<HlFailureFlag>create(flags));
         }
 
         /**

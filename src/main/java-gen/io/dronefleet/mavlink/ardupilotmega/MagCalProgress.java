@@ -285,14 +285,14 @@ public final class MagCalProgress {
          * Calibration Status. 
          */
         public final Builder calStatus(Enum... flags) {
-            return calStatus(EnumValue.create(flags));
+            return calStatus(EnumValue.<MagCalStatus>create(flags));
         }
 
         /**
          * Calibration Status. 
          */
         public final Builder calStatus(Collection<Enum> flags) {
-            return calStatus(EnumValue.create(flags));
+            return calStatus(EnumValue.<MagCalStatus>create(flags));
         }
 
         /**

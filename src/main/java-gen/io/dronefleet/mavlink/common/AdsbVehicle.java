@@ -387,14 +387,14 @@ public final class AdsbVehicle {
          * ADSB altitude type. 
          */
         public final Builder altitudeType(Enum... flags) {
-            return altitudeType(EnumValue.create(flags));
+            return altitudeType(EnumValue.<AdsbAltitudeType>create(flags));
         }
 
         /**
          * ADSB altitude type. 
          */
         public final Builder altitudeType(Collection<Enum> flags) {
-            return altitudeType(EnumValue.create(flags));
+            return altitudeType(EnumValue.<AdsbAltitudeType>create(flags));
         }
 
         /**
@@ -490,14 +490,14 @@ public final class AdsbVehicle {
          * ADSB emitter type. 
          */
         public final Builder emitterType(Enum... flags) {
-            return emitterType(EnumValue.create(flags));
+            return emitterType(EnumValue.<AdsbEmitterType>create(flags));
         }
 
         /**
          * ADSB emitter type. 
          */
         public final Builder emitterType(Collection<Enum> flags) {
-            return emitterType(EnumValue.create(flags));
+            return emitterType(EnumValue.<AdsbEmitterType>create(flags));
         }
 
         /**
@@ -538,14 +538,14 @@ public final class AdsbVehicle {
          * Bitmap to indicate various statuses including valid data fields 
          */
         public final Builder flags(Enum... flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<AdsbFlags>create(flags));
         }
 
         /**
          * Bitmap to indicate various statuses including valid data fields 
          */
         public final Builder flags(Collection<Enum> flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<AdsbFlags>create(flags));
         }
 
         /**

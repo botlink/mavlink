@@ -522,14 +522,14 @@ public final class CameraFeedback {
          * Feedback flags. 
          */
         public final Builder flags(Enum... flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<CameraFeedbackFlags>create(flags));
         }
 
         /**
          * Feedback flags. 
          */
         public final Builder flags(Collection<Enum> flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<CameraFeedbackFlags>create(flags));
         }
 
         /**

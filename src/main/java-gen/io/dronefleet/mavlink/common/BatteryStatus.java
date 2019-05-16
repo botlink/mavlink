@@ -327,14 +327,14 @@ public final class BatteryStatus {
          * Function of the battery 
          */
         public final Builder batteryFunction(Enum... flags) {
-            return batteryFunction(EnumValue.create(flags));
+            return batteryFunction(EnumValue.<MavBatteryFunction>create(flags));
         }
 
         /**
          * Function of the battery 
          */
         public final Builder batteryFunction(Collection<Enum> flags) {
-            return batteryFunction(EnumValue.create(flags));
+            return batteryFunction(EnumValue.<MavBatteryFunction>create(flags));
         }
 
         /**
@@ -362,14 +362,14 @@ public final class BatteryStatus {
          * Type (chemistry) of the battery 
          */
         public final Builder type(Enum... flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<MavBatteryType>create(flags));
         }
 
         /**
          * Type (chemistry) of the battery 
          */
         public final Builder type(Collection<Enum> flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<MavBatteryType>create(flags));
         }
 
         /**
@@ -499,14 +499,14 @@ public final class BatteryStatus {
          * State for extent of discharge, provided by autopilot for warning or external reactions 
          */
         public final Builder chargeState(Enum... flags) {
-            return chargeState(EnumValue.create(flags));
+            return chargeState(EnumValue.<MavBatteryChargeState>create(flags));
         }
 
         /**
          * State for extent of discharge, provided by autopilot for warning or external reactions 
          */
         public final Builder chargeState(Collection<Enum> flags) {
-            return chargeState(EnumValue.create(flags));
+            return chargeState(EnumValue.<MavBatteryChargeState>create(flags));
         }
 
         public final BatteryStatus build() {

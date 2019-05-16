@@ -191,14 +191,14 @@ public final class HilActuatorControls {
          * System mode. Includes arming state. 
          */
         public final Builder mode(Enum... flags) {
-            return mode(EnumValue.create(flags));
+            return mode(EnumValue.<MavModeFlag>create(flags));
         }
 
         /**
          * System mode. Includes arming state. 
          */
         public final Builder mode(Collection<Enum> flags) {
-            return mode(EnumValue.create(flags));
+            return mode(EnumValue.<MavModeFlag>create(flags));
         }
 
         /**

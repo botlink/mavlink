@@ -399,14 +399,14 @@ public final class LandingTarget {
          * Coordinate frame used for following fields. 
          */
         public final Builder frame(Enum... flags) {
-            return frame(EnumValue.create(flags));
+            return frame(EnumValue.<MavFrame>create(flags));
         }
 
         /**
          * Coordinate frame used for following fields. 
          */
         public final Builder frame(Collection<Enum> flags) {
-            return frame(EnumValue.create(flags));
+            return frame(EnumValue.<MavFrame>create(flags));
         }
 
         /**
@@ -557,14 +557,14 @@ public final class LandingTarget {
          * Type of landing target 
          */
         public final Builder type(Enum... flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<LandingTargetType>create(flags));
         }
 
         /**
          * Type of landing target 
          */
         public final Builder type(Collection<Enum> flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<LandingTargetType>create(flags));
         }
 
         /**

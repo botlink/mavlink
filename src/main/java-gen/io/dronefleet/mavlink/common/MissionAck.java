@@ -186,14 +186,14 @@ public final class MissionAck {
          * Mission result. 
          */
         public final Builder type(Enum... flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<MavMissionResult>create(flags));
         }
 
         /**
          * Mission result. 
          */
         public final Builder type(Collection<Enum> flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<MavMissionResult>create(flags));
         }
 
         /**
@@ -222,14 +222,14 @@ public final class MissionAck {
          * Mission type. 
          */
         public final Builder missionType(Enum... flags) {
-            return missionType(EnumValue.create(flags));
+            return missionType(EnumValue.<MavMissionType>create(flags));
         }
 
         /**
          * Mission type. 
          */
         public final Builder missionType(Collection<Enum> flags) {
-            return missionType(EnumValue.create(flags));
+            return missionType(EnumValue.<MavMissionType>create(flags));
         }
 
         public final MissionAck build() {

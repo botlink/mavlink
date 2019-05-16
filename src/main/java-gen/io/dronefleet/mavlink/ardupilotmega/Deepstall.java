@@ -407,14 +407,14 @@ public final class Deepstall {
          * Deepstall stage. 
          */
         public final Builder stage(Enum... flags) {
-            return stage(EnumValue.create(flags));
+            return stage(EnumValue.<DeepstallStage>create(flags));
         }
 
         /**
          * Deepstall stage. 
          */
         public final Builder stage(Collection<Enum> flags) {
-            return stage(EnumValue.create(flags));
+            return stage(EnumValue.<DeepstallStage>create(flags));
         }
 
         public final Deepstall build() {

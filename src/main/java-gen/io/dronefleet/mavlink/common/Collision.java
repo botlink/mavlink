@@ -220,14 +220,14 @@ public final class Collision {
          * Collision data source 
          */
         public final Builder src(Enum... flags) {
-            return src(EnumValue.create(flags));
+            return src(EnumValue.<MavCollisionSrc>create(flags));
         }
 
         /**
          * Collision data source 
          */
         public final Builder src(Collection<Enum> flags) {
-            return src(EnumValue.create(flags));
+            return src(EnumValue.<MavCollisionSrc>create(flags));
         }
 
         /**
@@ -268,14 +268,14 @@ public final class Collision {
          * Action that is being taken to avoid this collision 
          */
         public final Builder action(Enum... flags) {
-            return action(EnumValue.create(flags));
+            return action(EnumValue.<MavCollisionAction>create(flags));
         }
 
         /**
          * Action that is being taken to avoid this collision 
          */
         public final Builder action(Collection<Enum> flags) {
-            return action(EnumValue.create(flags));
+            return action(EnumValue.<MavCollisionAction>create(flags));
         }
 
         /**
@@ -303,14 +303,14 @@ public final class Collision {
          * How concerned the aircraft is about this collision 
          */
         public final Builder threatLevel(Enum... flags) {
-            return threatLevel(EnumValue.create(flags));
+            return threatLevel(EnumValue.<MavCollisionThreatLevel>create(flags));
         }
 
         /**
          * How concerned the aircraft is about this collision 
          */
         public final Builder threatLevel(Collection<Enum> flags) {
-            return threatLevel(EnumValue.create(flags));
+            return threatLevel(EnumValue.<MavCollisionThreatLevel>create(flags));
         }
 
         /**

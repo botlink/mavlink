@@ -451,7 +451,7 @@ public final class SetPositionTargetGlobalInt {
          * MAV_FRAME_GLOBAL_TERRAIN_ALT_INT = 11 
          */
         public final Builder coordinateFrame(Enum... flags) {
-            return coordinateFrame(EnumValue.create(flags));
+            return coordinateFrame(EnumValue.<MavFrame>create(flags));
         }
 
         /**
@@ -459,7 +459,7 @@ public final class SetPositionTargetGlobalInt {
          * MAV_FRAME_GLOBAL_TERRAIN_ALT_INT = 11 
          */
         public final Builder coordinateFrame(Collection<Enum> flags) {
-            return coordinateFrame(EnumValue.create(flags));
+            return coordinateFrame(EnumValue.<MavFrame>create(flags));
         }
 
         /**
@@ -487,14 +487,14 @@ public final class SetPositionTargetGlobalInt {
          * Bitmap to indicate which dimensions should be ignored by the vehicle. 
          */
         public final Builder typeMask(Enum... flags) {
-            return typeMask(EnumValue.create(flags));
+            return typeMask(EnumValue.<PositionTargetTypemask>create(flags));
         }
 
         /**
          * Bitmap to indicate which dimensions should be ignored by the vehicle. 
          */
         public final Builder typeMask(Collection<Enum> flags) {
-            return typeMask(EnumValue.create(flags));
+            return typeMask(EnumValue.<PositionTargetTypemask>create(flags));
         }
 
         /**

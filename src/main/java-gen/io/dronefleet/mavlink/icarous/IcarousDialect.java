@@ -11,17 +11,20 @@ import java.util.Map;
 
 public final class IcarousDialect extends AbstractMavlinkDialect {
     /**
-     * A list of all of the dependencies of this dialect.
-     */
-    private static final List<MavlinkDialect> dependencies = Collections.emptyList();
-
-    /**
      * A list of all message types supported by this dialect.
      */
     private static final Map<Integer, Class> messages = new UnmodifiableMapBuilder<Integer, Class>()
             .put(42000, IcarousHeartbeat.class)
             .put(42001, IcarousKinematicBands.class)
             .build();
+
+    /**
+     * A list of all of the dependencies of this dialect.
+     */
+    private static final List<MavlinkDialect> dependencies = Collections.emptyList();
+
+    static {
+    }
 
     public IcarousDialect() {
         super("icarous", dependencies, messages);

@@ -224,14 +224,14 @@ public final class MountConfigure {
          * Mount operating mode. 
          */
         public final Builder mountMode(Enum... flags) {
-            return mountMode(EnumValue.create(flags));
+            return mountMode(EnumValue.<MavMountMode>create(flags));
         }
 
         /**
          * Mount operating mode. 
          */
         public final Builder mountMode(Collection<Enum> flags) {
-            return mountMode(EnumValue.create(flags));
+            return mountMode(EnumValue.<MavMountMode>create(flags));
         }
 
         /**

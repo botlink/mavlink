@@ -429,14 +429,14 @@ public final class MissionItemInt {
          * The coordinate system of the waypoint. 
          */
         public final Builder frame(Enum... flags) {
-            return frame(EnumValue.create(flags));
+            return frame(EnumValue.<MavFrame>create(flags));
         }
 
         /**
          * The coordinate system of the waypoint. 
          */
         public final Builder frame(Collection<Enum> flags) {
-            return frame(EnumValue.create(flags));
+            return frame(EnumValue.<MavFrame>create(flags));
         }
 
         /**
@@ -464,14 +464,14 @@ public final class MissionItemInt {
          * The scheduled action for the waypoint. 
          */
         public final Builder command(Enum... flags) {
-            return command(EnumValue.create(flags));
+            return command(EnumValue.<MavCmd>create(flags));
         }
 
         /**
          * The scheduled action for the waypoint. 
          */
         public final Builder command(Collection<Enum> flags) {
-            return command(EnumValue.create(flags));
+            return command(EnumValue.<MavCmd>create(flags));
         }
 
         /**
@@ -619,14 +619,14 @@ public final class MissionItemInt {
          * Mission type. 
          */
         public final Builder missionType(Enum... flags) {
-            return missionType(EnumValue.create(flags));
+            return missionType(EnumValue.<MavMissionType>create(flags));
         }
 
         /**
          * Mission type. 
          */
         public final Builder missionType(Collection<Enum> flags) {
-            return missionType(EnumValue.create(flags));
+            return missionType(EnumValue.<MavMissionType>create(flags));
         }
 
         public final MissionItemInt build() {

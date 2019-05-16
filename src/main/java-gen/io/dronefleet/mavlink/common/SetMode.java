@@ -154,14 +154,14 @@ public final class SetMode {
          * The new base mode. 
          */
         public final Builder baseMode(Enum... flags) {
-            return baseMode(EnumValue.create(flags));
+            return baseMode(EnumValue.<MavMode>create(flags));
         }
 
         /**
          * The new base mode. 
          */
         public final Builder baseMode(Collection<Enum> flags) {
-            return baseMode(EnumValue.create(flags));
+            return baseMode(EnumValue.<MavMode>create(flags));
         }
 
         /**

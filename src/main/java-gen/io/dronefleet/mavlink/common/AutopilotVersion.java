@@ -332,14 +332,14 @@ public final class AutopilotVersion {
          * Bitmap of capabilities 
          */
         public final Builder capabilities(Enum... flags) {
-            return capabilities(EnumValue.create(flags));
+            return capabilities(EnumValue.<MavProtocolCapability>create(flags));
         }
 
         /**
          * Bitmap of capabilities 
          */
         public final Builder capabilities(Collection<Enum> flags) {
-            return capabilities(EnumValue.create(flags));
+            return capabilities(EnumValue.<MavProtocolCapability>create(flags));
         }
 
         /**

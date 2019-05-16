@@ -261,14 +261,14 @@ public final class LimitsStatus {
          * State of AP_Limits. 
          */
         public final Builder limitsState(Enum... flags) {
-            return limitsState(EnumValue.create(flags));
+            return limitsState(EnumValue.<LimitsState>create(flags));
         }
 
         /**
          * State of AP_Limits. 
          */
         public final Builder limitsState(Collection<Enum> flags) {
-            return limitsState(EnumValue.create(flags));
+            return limitsState(EnumValue.<LimitsState>create(flags));
         }
 
         /**
@@ -361,14 +361,14 @@ public final class LimitsStatus {
          * AP_Limit_Module bitfield of enabled modules. 
          */
         public final Builder modsEnabled(Enum... flags) {
-            return modsEnabled(EnumValue.create(flags));
+            return modsEnabled(EnumValue.<LimitModule>create(flags));
         }
 
         /**
          * AP_Limit_Module bitfield of enabled modules. 
          */
         public final Builder modsEnabled(Collection<Enum> flags) {
-            return modsEnabled(EnumValue.create(flags));
+            return modsEnabled(EnumValue.<LimitModule>create(flags));
         }
 
         /**
@@ -396,14 +396,14 @@ public final class LimitsStatus {
          * AP_Limit_Module bitfield of required modules. 
          */
         public final Builder modsRequired(Enum... flags) {
-            return modsRequired(EnumValue.create(flags));
+            return modsRequired(EnumValue.<LimitModule>create(flags));
         }
 
         /**
          * AP_Limit_Module bitfield of required modules. 
          */
         public final Builder modsRequired(Collection<Enum> flags) {
-            return modsRequired(EnumValue.create(flags));
+            return modsRequired(EnumValue.<LimitModule>create(flags));
         }
 
         /**
@@ -431,14 +431,14 @@ public final class LimitsStatus {
          * AP_Limit_Module bitfield of triggered modules. 
          */
         public final Builder modsTriggered(Enum... flags) {
-            return modsTriggered(EnumValue.create(flags));
+            return modsTriggered(EnumValue.<LimitModule>create(flags));
         }
 
         /**
          * AP_Limit_Module bitfield of triggered modules. 
          */
         public final Builder modsTriggered(Collection<Enum> flags) {
-            return modsTriggered(EnumValue.create(flags));
+            return modsTriggered(EnumValue.<LimitModule>create(flags));
         }
 
         public final LimitsStatus build() {

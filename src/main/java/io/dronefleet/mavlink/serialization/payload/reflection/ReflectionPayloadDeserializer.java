@@ -9,11 +9,11 @@ import io.dronefleet.mavlink.util.EnumValue;
 import io.dronefleet.mavlink.util.WireFieldInfoComparator;
 
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ReflectionPayloadDeserializer implements MavlinkPayloadDeserializer {
@@ -29,64 +29,84 @@ public class ReflectionPayloadDeserializer implements MavlinkPayloadDeserializer
         }
 
         try {
-            Object builder = Arrays.stream(messageType.getMethods())
-                    .filter(m -> m.isAnnotationPresent(MavlinkMessageBuilder.class))
-                    .findFirst()
-                    .orElseThrow(() -> new MavlinkSerializationException(
-                            "Message " + messageType.getName() + " does not have a builder"))
-                    .invoke(null);
+            Method builderMethod = null;
+            for (Method method : messageType.getMethods()) {
+                if (!method.isAnnotationPresent(MavlinkMessageBuilder.class)) {
+                    continue;
+                }
+                builderMethod = method;
+                break;
+            }
+            if (builderMethod == null) {
+                throw new MavlinkSerializationException("Message " + messageType.getName() + " does not have a builder");
+            }
+
+            Object builder = builderMethod.invoke(null);
 
             AtomicInteger nextOffset = new AtomicInteger();
-            Arrays.stream(builder.getClass().getMethods())
-                    .filter(m -> m.isAnnotationPresent(MavlinkFieldInfo.class))
-                    .sorted((a, b) -> {
-                        MavlinkFieldInfo fa = a.getAnnotation(MavlinkFieldInfo.class);
-                        MavlinkFieldInfo fb = b.getAnnotation(MavlinkFieldInfo.class);
-                        return wireComparator.compare(fa, fb);
-                    })
-                    .filter(f -> nextOffset.get() < payload.length)
-                    .forEach(method -> {
-                        MavlinkFieldInfo field = method.getAnnotation(MavlinkFieldInfo.class);
 
-                        int length = field.unitSize() * Math.max(field.arraySize(), 1);
-                        int offset = nextOffset.getAndAccumulate(length, (a, b) -> a + b);
+            List<Method> mavlinkFieldMethods = new ArrayList<>();
+            for (Method method : builder.getClass().getMethods()) {
+                if (method.isAnnotationPresent(MavlinkFieldInfo.class)) {
+                    mavlinkFieldMethods.add(method);
+                }
+            }
 
-                        byte[] data = new byte[length];
-                        int copyLength = Math.max(
-                                Math.min(
-                                        length,
-                                        payload.length - offset),
-                                0);
-                        System.arraycopy(payload, offset, data, 0, copyLength);
+            Comparator<Method> annotationComparator = new Comparator<Method>() {
+                @Override
+                public int compare(Method a, Method b) {
+                    MavlinkFieldInfo fa = a.getAnnotation(MavlinkFieldInfo.class);
+                    MavlinkFieldInfo fb = b.getAnnotation(MavlinkFieldInfo.class);
+                    return wireComparator.compare(fa, fb);
+                }
+            };
 
-                        Class fieldType = Optional.of(method.getParameterTypes())
-                                .filter(types -> types.length == 1)
-                                .map(types -> types[0])
-                                .orElseThrow(() -> new MavlinkSerializationException(
-                                        "Method " + method.getName() + " of " + builder.getClass().getName()
-                                                + " is annotated with @MavlinkFieldInfo, however does not " +
-                                                "accept a single parameter."));
+            Collections.sort(mavlinkFieldMethods, annotationComparator);
 
-                        try {
-                            if (EnumValue.class.isAssignableFrom(fieldType)) {
-                                method.invoke(builder, enumValue(field.enumType(), data, field.signed()));
-                            } else if (int.class.isAssignableFrom(fieldType)) {
-                                method.invoke(builder, (int) integerValue(data, field.signed()));
-                            } else if (long.class.isAssignableFrom(fieldType)) {
-                                method.invoke(builder, integerValue(data, field.signed()));
-                            } else if (float.class.isAssignableFrom(fieldType)) {
-                                method.invoke(builder, floatValue(data));
-                            } else if (double.class.isAssignableFrom(fieldType)) {
-                                method.invoke(builder, doubleValue(data));
-                            } else if (String.class.isAssignableFrom(fieldType)) {
-                                method.invoke(builder, stringValue(data));
-                            } else if (byte[].class.isAssignableFrom(fieldType)) {
-                                method.invoke(builder, data);
-                            }
-                        } catch (IllegalAccessException | InvocationTargetException e) {
-                            e.printStackTrace();
-                        }
-                    });
+            List<Method> offsetMethods = new ArrayList<>();
+            for (Method method : mavlinkFieldMethods) {
+                if (!(nextOffset.get() < payload.length)) {
+                    continue;
+                }
+
+                MavlinkFieldInfo field = method.getAnnotation(MavlinkFieldInfo.class);
+
+                int length = field.unitSize() * Math.max(field.arraySize(), 1);
+                int offset = nextOffset.get();
+                nextOffset.getAndSet(length + offset);
+
+                byte[] data = new byte[length];
+                int copyLength = Math.max(Math.min(length, payload.length - offset), 0);
+                System.arraycopy(payload, offset, data, 0, copyLength);
+
+                Class[] types = method.getParameterTypes();
+                if (!(types.length == 1)) {
+                    throw new MavlinkSerializationException(
+                            "Method " + method.getName() + " of " + builder.getClass().getName()
+                                    + " is annotated with @MavlinkFieldInfo, however does not accept a single parameter.");
+                }
+                Class fieldType = types[0];
+
+                try {
+                    if (EnumValue.class.isAssignableFrom(fieldType)) {
+                        method.invoke(builder, enumValue(field.enumType(), data, field.signed()));
+                    } else if (int.class.isAssignableFrom(fieldType)) {
+                        method.invoke(builder, (int) integerValue(data, field.signed()));
+                    } else if (long.class.isAssignableFrom(fieldType)) {
+                        method.invoke(builder, integerValue(data, field.signed()));
+                    } else if (float.class.isAssignableFrom(fieldType)) {
+                        method.invoke(builder, floatValue(data));
+                    } else if (double.class.isAssignableFrom(fieldType)) {
+                        method.invoke(builder, doubleValue(data));
+                    } else if (String.class.isAssignableFrom(fieldType)) {
+                        method.invoke(builder, stringValue(data));
+                    } else if (byte[].class.isAssignableFrom(fieldType)) {
+                        method.invoke(builder, data);
+                    }
+                } catch (IllegalAccessException | InvocationTargetException e) {
+                    e.printStackTrace();
+                }
+            }
 
             //noinspection unchecked
             return (T) builder.getClass().getMethod("build").invoke(builder);

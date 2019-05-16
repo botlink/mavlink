@@ -137,17 +137,17 @@ public class PackageGenerator {
 
     public TypeSpec generateDialect() {
         CodeBlock.Builder dependenciesInitializer = CodeBlock.builder();
+        CodeBlock.Builder dependeciesStatic = CodeBlock.builder();
         if (dependencies.size() == 0) {
             dependenciesInitializer.add("$T.emptyList()", Collections.class);
         } else {
-            dependenciesInitializer.add("$T.asList$>$>", Arrays.class);
-            dependenciesInitializer.add(
+            dependenciesInitializer.add("new $T<>()", ArrayList.class);
+            dependeciesStatic.add(
                     dependencies.stream()
                             .map(dep -> CodeBlock.builder()
-                                    .add("new $T()", dep.dialectClassName())
+                                    .add("dependencies.add(new $T())", dep.dialectClassName())
                                     .build())
-                            .collect(CodeBlock.joining(",\n", "(\n", ")")));
-            dependenciesInitializer.add("$<$<");
+                            .collect(CodeBlock.joining(";\n", "", ";\n")));
         }
 
         CodeBlock.Builder messageTypesInitializer = CodeBlock.builder();
@@ -171,19 +171,20 @@ public class PackageGenerator {
                 .addModifiers(Modifier.FINAL, Modifier.PUBLIC)
                 .superclass(ABSTRACT_MAVLINK_DIALECT)
                 .addField(FieldSpec.builder(
-                        ParameterizedTypeName.get(ClassName.get(List.class), MAVLINK_DIALECT),
-                        "dependencies",
-                        Modifier.PRIVATE, Modifier.STATIC, Modifier.FINAL)
-                        .addJavadoc("A list of all of the dependencies of this dialect.\n")
-                        .initializer(dependenciesInitializer.build())
-                        .build())
-                .addField(FieldSpec.builder(
                         ParameterizedTypeName.get(Map.class, Integer.class, Class.class),
                         "messages",
                         Modifier.PRIVATE, Modifier.STATIC, Modifier.FINAL)
                         .addJavadoc("A list of all message types supported by this dialect.\n")
                         .initializer(messageTypesInitializer.build())
                         .build())
+                .addField(FieldSpec.builder(
+                        ParameterizedTypeName.get(ClassName.get(List.class), MAVLINK_DIALECT),
+                        "dependencies",
+                        Modifier.PRIVATE, Modifier.STATIC, Modifier.FINAL)
+                        .addJavadoc("A list of all of the dependencies of this dialect.\n")
+                        .initializer(dependenciesInitializer.build())
+                        .build())
+                .addStaticBlock(dependeciesStatic.build())
                 .addMethod(MethodSpec.constructorBuilder()
                         .addModifiers(Modifier.PUBLIC)
                         .addStatement("super($S, $N, $N)",

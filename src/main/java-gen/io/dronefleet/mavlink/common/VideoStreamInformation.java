@@ -355,14 +355,14 @@ public final class VideoStreamInformation {
          * Type of stream. 
          */
         public final Builder type(Enum... flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<VideoStreamType>create(flags));
         }
 
         /**
          * Type of stream. 
          */
         public final Builder type(Collection<Enum> flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<VideoStreamType>create(flags));
         }
 
         /**
@@ -390,14 +390,14 @@ public final class VideoStreamInformation {
          * Bitmap of stream status flags. 
          */
         public final Builder flags(Enum... flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<VideoStreamStatusFlags>create(flags));
         }
 
         /**
          * Bitmap of stream status flags. 
          */
         public final Builder flags(Collection<Enum> flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<VideoStreamStatusFlags>create(flags));
         }
 
         /**

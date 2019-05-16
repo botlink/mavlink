@@ -363,7 +363,7 @@ public final class SysStatus {
          * Value of 1: present. 
          */
         public final Builder onboardControlSensorsPresent(Enum... flags) {
-            return onboardControlSensorsPresent(EnumValue.create(flags));
+            return onboardControlSensorsPresent(EnumValue.<MavSysStatusSensor>create(flags));
         }
 
         /**
@@ -371,7 +371,7 @@ public final class SysStatus {
          * Value of 1: present. 
          */
         public final Builder onboardControlSensorsPresent(Collection<Enum> flags) {
-            return onboardControlSensorsPresent(EnumValue.create(flags));
+            return onboardControlSensorsPresent(EnumValue.<MavSysStatusSensor>create(flags));
         }
 
         /**
@@ -403,7 +403,7 @@ public final class SysStatus {
          * Value of 1: enabled. 
          */
         public final Builder onboardControlSensorsEnabled(Enum... flags) {
-            return onboardControlSensorsEnabled(EnumValue.create(flags));
+            return onboardControlSensorsEnabled(EnumValue.<MavSysStatusSensor>create(flags));
         }
 
         /**
@@ -411,7 +411,7 @@ public final class SysStatus {
          * Value of 1: enabled. 
          */
         public final Builder onboardControlSensorsEnabled(Collection<Enum> flags) {
-            return onboardControlSensorsEnabled(EnumValue.create(flags));
+            return onboardControlSensorsEnabled(EnumValue.<MavSysStatusSensor>create(flags));
         }
 
         /**
@@ -443,7 +443,7 @@ public final class SysStatus {
          * of 0: not enabled. Value of 1: enabled. 
          */
         public final Builder onboardControlSensorsHealth(Enum... flags) {
-            return onboardControlSensorsHealth(EnumValue.create(flags));
+            return onboardControlSensorsHealth(EnumValue.<MavSysStatusSensor>create(flags));
         }
 
         /**
@@ -451,7 +451,7 @@ public final class SysStatus {
          * of 0: not enabled. Value of 1: enabled. 
          */
         public final Builder onboardControlSensorsHealth(Collection<Enum> flags) {
-            return onboardControlSensorsHealth(EnumValue.create(flags));
+            return onboardControlSensorsHealth(EnumValue.<MavSysStatusSensor>create(flags));
         }
 
         /**

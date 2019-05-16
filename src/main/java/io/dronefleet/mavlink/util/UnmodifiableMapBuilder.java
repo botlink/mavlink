@@ -8,7 +8,7 @@ public class UnmodifiableMapBuilder<K, V> {
     private final Map<K, V> map;
 
     public UnmodifiableMapBuilder() {
-        this(new HashMap<>());
+        this(new HashMap<K,V>());
     }
 
     public UnmodifiableMapBuilder(Map<K, V> map) {

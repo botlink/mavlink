@@ -196,14 +196,14 @@ public final class RemoteLogBlockStatus {
          * Log data block status. 
          */
         public final Builder status(Enum... flags) {
-            return status(EnumValue.create(flags));
+            return status(EnumValue.<MavRemoteLogDataBlockStatuses>create(flags));
         }
 
         /**
          * Log data block status. 
          */
         public final Builder status(Collection<Enum> flags) {
-            return status(EnumValue.create(flags));
+            return status(EnumValue.<MavRemoteLogDataBlockStatuses>create(flags));
         }
 
         public final RemoteLogBlockStatus build() {

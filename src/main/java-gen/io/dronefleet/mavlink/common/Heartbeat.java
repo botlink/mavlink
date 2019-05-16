@@ -209,7 +209,7 @@ public final class Heartbeat {
          * associated system. 
          */
         public final Builder type(Enum... flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<MavType>create(flags));
         }
 
         /**
@@ -217,7 +217,7 @@ public final class Heartbeat {
          * associated system. 
          */
         public final Builder type(Collection<Enum> flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<MavType>create(flags));
         }
 
         /**
@@ -245,14 +245,14 @@ public final class Heartbeat {
          * Autopilot type / class. 
          */
         public final Builder autopilot(Enum... flags) {
-            return autopilot(EnumValue.create(flags));
+            return autopilot(EnumValue.<MavAutopilot>create(flags));
         }
 
         /**
          * Autopilot type / class. 
          */
         public final Builder autopilot(Collection<Enum> flags) {
-            return autopilot(EnumValue.create(flags));
+            return autopilot(EnumValue.<MavAutopilot>create(flags));
         }
 
         /**
@@ -280,14 +280,14 @@ public final class Heartbeat {
          * System mode bitmap. 
          */
         public final Builder baseMode(Enum... flags) {
-            return baseMode(EnumValue.create(flags));
+            return baseMode(EnumValue.<MavModeFlag>create(flags));
         }
 
         /**
          * System mode bitmap. 
          */
         public final Builder baseMode(Collection<Enum> flags) {
-            return baseMode(EnumValue.create(flags));
+            return baseMode(EnumValue.<MavModeFlag>create(flags));
         }
 
         /**
@@ -328,14 +328,14 @@ public final class Heartbeat {
          * System status flag. 
          */
         public final Builder systemStatus(Enum... flags) {
-            return systemStatus(EnumValue.create(flags));
+            return systemStatus(EnumValue.<MavState>create(flags));
         }
 
         /**
          * System status flag. 
          */
         public final Builder systemStatus(Collection<Enum> flags) {
-            return systemStatus(EnumValue.create(flags));
+            return systemStatus(EnumValue.<MavState>create(flags));
         }
 
         /**

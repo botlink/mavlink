@@ -452,14 +452,14 @@ public final class MagCalReport {
          * Calibration Status. 
          */
         public final Builder calStatus(Enum... flags) {
-            return calStatus(EnumValue.create(flags));
+            return calStatus(EnumValue.<MagCalStatus>create(flags));
         }
 
         /**
          * Calibration Status. 
          */
         public final Builder calStatus(Collection<Enum> flags) {
-            return calStatus(EnumValue.create(flags));
+            return calStatus(EnumValue.<MagCalStatus>create(flags));
         }
 
         /**
@@ -645,14 +645,14 @@ public final class MagCalReport {
          * orientation before calibration. 
          */
         public final Builder oldOrientation(Enum... flags) {
-            return oldOrientation(EnumValue.create(flags));
+            return oldOrientation(EnumValue.<MavSensorOrientation>create(flags));
         }
 
         /**
          * orientation before calibration. 
          */
         public final Builder oldOrientation(Collection<Enum> flags) {
-            return oldOrientation(EnumValue.create(flags));
+            return oldOrientation(EnumValue.<MavSensorOrientation>create(flags));
         }
 
         /**
@@ -681,14 +681,14 @@ public final class MagCalReport {
          * orientation after calibration. 
          */
         public final Builder newOrientation(Enum... flags) {
-            return newOrientation(EnumValue.create(flags));
+            return newOrientation(EnumValue.<MavSensorOrientation>create(flags));
         }
 
         /**
          * orientation after calibration. 
          */
         public final Builder newOrientation(Collection<Enum> flags) {
-            return newOrientation(EnumValue.create(flags));
+            return newOrientation(EnumValue.<MavSensorOrientation>create(flags));
         }
 
         public final MagCalReport build() {

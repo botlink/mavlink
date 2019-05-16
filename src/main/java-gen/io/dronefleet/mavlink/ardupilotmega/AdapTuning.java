@@ -338,14 +338,14 @@ public final class AdapTuning {
          * Axis. 
          */
         public final Builder axis(Enum... flags) {
-            return axis(EnumValue.create(flags));
+            return axis(EnumValue.<PidTuningAxis>create(flags));
         }
 
         /**
          * Axis. 
          */
         public final Builder axis(Collection<Enum> flags) {
-            return axis(EnumValue.create(flags));
+            return axis(EnumValue.<PidTuningAxis>create(flags));
         }
 
         /**

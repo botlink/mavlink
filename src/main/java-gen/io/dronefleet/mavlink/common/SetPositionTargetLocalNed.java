@@ -444,7 +444,7 @@ public final class SetPositionTargetLocalNed {
          * MAV_FRAME_BODY_NED = 8, MAV_FRAME_BODY_OFFSET_NED = 9 
          */
         public final Builder coordinateFrame(Enum... flags) {
-            return coordinateFrame(EnumValue.create(flags));
+            return coordinateFrame(EnumValue.<MavFrame>create(flags));
         }
 
         /**
@@ -452,7 +452,7 @@ public final class SetPositionTargetLocalNed {
          * MAV_FRAME_BODY_NED = 8, MAV_FRAME_BODY_OFFSET_NED = 9 
          */
         public final Builder coordinateFrame(Collection<Enum> flags) {
-            return coordinateFrame(EnumValue.create(flags));
+            return coordinateFrame(EnumValue.<MavFrame>create(flags));
         }
 
         /**
@@ -480,14 +480,14 @@ public final class SetPositionTargetLocalNed {
          * Bitmap to indicate which dimensions should be ignored by the vehicle. 
          */
         public final Builder typeMask(Enum... flags) {
-            return typeMask(EnumValue.create(flags));
+            return typeMask(EnumValue.<PositionTargetTypemask>create(flags));
         }
 
         /**
          * Bitmap to indicate which dimensions should be ignored by the vehicle. 
          */
         public final Builder typeMask(Collection<Enum> flags) {
-            return typeMask(EnumValue.create(flags));
+            return typeMask(EnumValue.<PositionTargetTypemask>create(flags));
         }
 
         /**

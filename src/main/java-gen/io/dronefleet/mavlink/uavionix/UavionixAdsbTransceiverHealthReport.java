@@ -96,14 +96,14 @@ public final class UavionixAdsbTransceiverHealthReport {
          * ADS-B transponder messages 
          */
         public final Builder rfhealth(Enum... flags) {
-            return rfhealth(EnumValue.create(flags));
+            return rfhealth(EnumValue.<UavionixAdsbRfHealth>create(flags));
         }
 
         /**
          * ADS-B transponder messages 
          */
         public final Builder rfhealth(Collection<Enum> flags) {
-            return rfhealth(EnumValue.create(flags));
+            return rfhealth(EnumValue.<UavionixAdsbRfHealth>create(flags));
         }
 
         public final UavionixAdsbTransceiverHealthReport build() {

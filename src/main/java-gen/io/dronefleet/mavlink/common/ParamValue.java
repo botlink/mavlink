@@ -211,14 +211,14 @@ public final class ParamValue {
          * Onboard parameter type. 
          */
         public final Builder paramType(Enum... flags) {
-            return paramType(EnumValue.create(flags));
+            return paramType(EnumValue.<MavParamType>create(flags));
         }
 
         /**
          * Onboard parameter type. 
          */
         public final Builder paramType(Collection<Enum> flags) {
-            return paramType(EnumValue.create(flags));
+            return paramType(EnumValue.<MavParamType>create(flags));
         }
 
         /**

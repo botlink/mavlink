@@ -435,14 +435,14 @@ public final class GpsRtk {
          * Coordinate system of baseline 
          */
         public final Builder baselineCoordsType(Enum... flags) {
-            return baselineCoordsType(EnumValue.create(flags));
+            return baselineCoordsType(EnumValue.<RtkBaselineCoordinateSystem>create(flags));
         }
 
         /**
          * Coordinate system of baseline 
          */
         public final Builder baselineCoordsType(Collection<Enum> flags) {
-            return baselineCoordsType(EnumValue.create(flags));
+            return baselineCoordsType(EnumValue.<RtkBaselineCoordinateSystem>create(flags));
         }
 
         /**

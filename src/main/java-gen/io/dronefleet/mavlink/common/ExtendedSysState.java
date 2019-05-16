@@ -122,7 +122,7 @@ public final class ExtendedSysState {
          * configuration. 
          */
         public final Builder vtolState(Enum... flags) {
-            return vtolState(EnumValue.create(flags));
+            return vtolState(EnumValue.<MavVtolState>create(flags));
         }
 
         /**
@@ -130,7 +130,7 @@ public final class ExtendedSysState {
          * configuration. 
          */
         public final Builder vtolState(Collection<Enum> flags) {
-            return vtolState(EnumValue.create(flags));
+            return vtolState(EnumValue.<MavVtolState>create(flags));
         }
 
         /**
@@ -158,14 +158,14 @@ public final class ExtendedSysState {
          * The landed state. Is set to MAV_LANDED_STATE_UNDEFINED if landed state is unknown. 
          */
         public final Builder landedState(Enum... flags) {
-            return landedState(EnumValue.create(flags));
+            return landedState(EnumValue.<MavLandedState>create(flags));
         }
 
         /**
          * The landed state. Is set to MAV_LANDED_STATE_UNDEFINED if landed state is unknown. 
          */
         public final Builder landedState(Collection<Enum> flags) {
-            return landedState(EnumValue.create(flags));
+            return landedState(EnumValue.<MavLandedState>create(flags));
         }
 
         public final ExtendedSysState build() {

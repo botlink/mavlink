@@ -230,14 +230,14 @@ public final class UavcanNodeStatus {
          * Generalized node health status. 
          */
         public final Builder health(Enum... flags) {
-            return health(EnumValue.create(flags));
+            return health(EnumValue.<UavcanNodeHealth>create(flags));
         }
 
         /**
          * Generalized node health status. 
          */
         public final Builder health(Collection<Enum> flags) {
-            return health(EnumValue.create(flags));
+            return health(EnumValue.<UavcanNodeHealth>create(flags));
         }
 
         /**
@@ -265,14 +265,14 @@ public final class UavcanNodeStatus {
          * Generalized operating mode. 
          */
         public final Builder mode(Enum... flags) {
-            return mode(EnumValue.create(flags));
+            return mode(EnumValue.<UavcanNodeMode>create(flags));
         }
 
         /**
          * Generalized operating mode. 
          */
         public final Builder mode(Collection<Enum> flags) {
-            return mode(EnumValue.create(flags));
+            return mode(EnumValue.<UavcanNodeMode>create(flags));
         }
 
         /**

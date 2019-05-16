@@ -298,14 +298,14 @@ public final class DeviceOpRead {
          * The bus type. 
          */
         public final Builder bustype(Enum... flags) {
-            return bustype(EnumValue.create(flags));
+            return bustype(EnumValue.<DeviceOpBustype>create(flags));
         }
 
         /**
          * The bus type. 
          */
         public final Builder bustype(Collection<Enum> flags) {
-            return bustype(EnumValue.create(flags));
+            return bustype(EnumValue.<DeviceOpBustype>create(flags));
         }
 
         /**

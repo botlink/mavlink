@@ -289,7 +289,7 @@ public final class SafetySetAllowedArea {
          * handed, Z axis down. 
          */
         public final Builder frame(Enum... flags) {
-            return frame(EnumValue.create(flags));
+            return frame(EnumValue.<MavFrame>create(flags));
         }
 
         /**
@@ -297,7 +297,7 @@ public final class SafetySetAllowedArea {
          * handed, Z axis down. 
          */
         public final Builder frame(Collection<Enum> flags) {
-            return frame(EnumValue.create(flags));
+            return frame(EnumValue.<MavFrame>create(flags));
         }
 
         /**

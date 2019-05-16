@@ -678,14 +678,14 @@ public final class UtmGlobalPosition {
          * Flight state 
          */
         public final Builder flightState(Enum... flags) {
-            return flightState(EnumValue.create(flags));
+            return flightState(EnumValue.<UtmFlightState>create(flags));
         }
 
         /**
          * Flight state 
          */
         public final Builder flightState(Collection<Enum> flags) {
-            return flightState(EnumValue.create(flags));
+            return flightState(EnumValue.<UtmFlightState>create(flags));
         }
 
         /**
@@ -713,14 +713,14 @@ public final class UtmGlobalPosition {
          * Bitwise OR combination of the data available flags. 
          */
         public final Builder flags(Enum... flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<UtmDataAvailFlags>create(flags));
         }
 
         /**
          * Bitwise OR combination of the data available flags. 
          */
         public final Builder flags(Collection<Enum> flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<UtmDataAvailFlags>create(flags));
         }
 
         public final UtmGlobalPosition build() {

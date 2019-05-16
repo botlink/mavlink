@@ -219,14 +219,14 @@ public final class DataTransmissionHandshake {
          * Type of requested/acknowledged data. 
          */
         public final Builder type(Enum... flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<MavlinkDataStreamType>create(flags));
         }
 
         /**
          * Type of requested/acknowledged data. 
          */
         public final Builder type(Collection<Enum> flags) {
-            return type(EnumValue.create(flags));
+            return type(EnumValue.<MavlinkDataStreamType>create(flags));
         }
 
         /**

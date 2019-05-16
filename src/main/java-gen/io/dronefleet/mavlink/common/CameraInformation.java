@@ -476,14 +476,14 @@ public final class CameraInformation {
          * Bitmap of camera capability flags. 
          */
         public final Builder flags(Enum... flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<CameraCapFlags>create(flags));
         }
 
         /**
          * Bitmap of camera capability flags. 
          */
         public final Builder flags(Collection<Enum> flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<CameraCapFlags>create(flags));
         }
 
         /**

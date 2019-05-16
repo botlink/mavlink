@@ -129,14 +129,14 @@ public final class CtrlSrfcPt {
          * Bitfield containing the passthrough configuration, see {@link io.dronefleet.mavlink.slugs.ControlSurfaceFlag CONTROL_SURFACE_FLAG} ENUM. 
          */
         public final Builder bitfieldpt(Enum... flags) {
-            return bitfieldpt(EnumValue.create(flags));
+            return bitfieldpt(EnumValue.<ControlSurfaceFlag>create(flags));
         }
 
         /**
          * Bitfield containing the passthrough configuration, see {@link io.dronefleet.mavlink.slugs.ControlSurfaceFlag CONTROL_SURFACE_FLAG} ENUM. 
          */
         public final Builder bitfieldpt(Collection<Enum> flags) {
-            return bitfieldpt(EnumValue.create(flags));
+            return bitfieldpt(EnumValue.<ControlSurfaceFlag>create(flags));
         }
 
         public final CtrlSrfcPt build() {

@@ -213,14 +213,14 @@ public final class ParamExtValue {
          * Parameter type. 
          */
         public final Builder paramType(Enum... flags) {
-            return paramType(EnumValue.create(flags));
+            return paramType(EnumValue.<MavParamExtType>create(flags));
         }
 
         /**
          * Parameter type. 
          */
         public final Builder paramType(Collection<Enum> flags) {
-            return paramType(EnumValue.create(flags));
+            return paramType(EnumValue.<MavParamExtType>create(flags));
         }
 
         /**

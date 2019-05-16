@@ -10,11 +10,12 @@ import io.dronefleet.mavlink.util.WireFieldInfoComparator;
 import io.dronefleet.mavlink.util.reflection.MavlinkReflection;
 
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ReflectionPayloadSerializer implements MavlinkPayloadSerializer {
@@ -28,11 +29,15 @@ public class ReflectionPayloadSerializer implements MavlinkPayloadSerializer {
             throw new IllegalArgumentException(messageClass.getName() + " is not annotated with @MavlinkMessageInfo");
         }
 
-        int payloadLength = Arrays.stream(messageClass.getMethods())
-                .filter(m -> m.isAnnotationPresent(MavlinkFieldInfo.class))
-                .map(m -> m.getAnnotation(MavlinkFieldInfo.class))
-                .mapToInt(f -> f.unitSize() * Math.max(1, f.arraySize()))
-                .sum();
+        int payloadLength = 0;
+        for(Method method:messageClass.getMethods()) {
+            if(!(method.isAnnotationPresent(MavlinkFieldInfo.class))) {
+                continue;
+            }
+            MavlinkFieldInfo mavlinkFieldInfo = method.getAnnotation(MavlinkFieldInfo.class);
+            payloadLength += mavlinkFieldInfo.unitSize() * Math.max(1, mavlinkFieldInfo.arraySize());
+        }
+
         if (payloadLength > 253) {
             throw new IllegalStateException("payload length > 253 for message" + messageClass.getName());
         }
@@ -40,48 +45,60 @@ public class ReflectionPayloadSerializer implements MavlinkPayloadSerializer {
 
         AtomicInteger nextOffset = new AtomicInteger(0);
 
-        Arrays.stream(messageClass.getMethods())
-                .filter(m -> m.isAnnotationPresent(MavlinkFieldInfo.class))
-                .sorted((a, b) -> {
-                    MavlinkFieldInfo fa = a.getAnnotation(MavlinkFieldInfo.class);
-                    MavlinkFieldInfo fb = b.getAnnotation(MavlinkFieldInfo.class);
-                    return wireComparator.compare(fa, fb);
-                })
-                .forEach(m -> {
-                    MavlinkFieldInfo field = m.getAnnotation(MavlinkFieldInfo.class);
-                    int length = field.unitSize() * Math.max(field.arraySize(), 1);
-                    int offset = nextOffset.getAndAccumulate(length, (a, b) -> a + b);
-                    length += offset;
-                    try {
-                        Object fieldValue = m.invoke(message);
-                        if (fieldValue != null) {
-                            Class<?> fieldType = fieldValue.getClass();
-                            if (Integer.class.isAssignableFrom(fieldType)) {
-                                write((Integer) fieldValue, payload, offset, length);
-                            } else if (Long.class.isAssignableFrom(fieldType)) {
-                                write((Long) fieldValue, payload, offset, length);
-                            } else if (BigInteger.class.isAssignableFrom(fieldType)) {
-                                write((BigInteger) fieldValue, payload, offset, length);
-                            } else if (Float.class.isAssignableFrom(fieldType)) {
-                                write((Float) fieldValue, payload, offset, length);
-                            } else if (Double.class.isAssignableFrom(fieldType)) {
-                                write((Double) fieldValue, payload, offset, length);
-                            } else if (Enum.class.isAssignableFrom(fieldType)) {
-                                write((Enum) fieldValue, payload, offset, length);
-                            } else if (EnumValue.class.isAssignableFrom(fieldType)) {
-                                write((EnumValue<? extends Enum>) fieldValue, payload, offset, length);
-                            } else if (String.class.isAssignableFrom(fieldType)) {
-                                write((String) fieldValue, payload, offset, length);
-                            } else if (byte[].class.isAssignableFrom(fieldType)) {
-                                write((byte[]) fieldValue, payload, offset, length);
-                            } else {
-                                throw new MavlinkSerializationException("unrecognized field type " + fieldType.getName());
-                            }
-                        }
-                    } catch (IllegalAccessException | InvocationTargetException e) {
-                        throw new IllegalStateException(e);
+        List<Method> mavlinkFieldMethods = new ArrayList<>();
+        for(Method method: messageClass.getMethods()) {
+            if(method.isAnnotationPresent(MavlinkFieldInfo.class)) {
+                mavlinkFieldMethods.add(method);
+            }
+        }
+
+        Comparator<Method> annotationComparator = new Comparator<Method>() {
+            @Override
+            public int compare(Method a, Method b) {
+                MavlinkFieldInfo fa = a.getAnnotation(MavlinkFieldInfo.class);
+                MavlinkFieldInfo fb = b.getAnnotation(MavlinkFieldInfo.class);
+                return wireComparator.compare(fa, fb);
+            }
+        };
+
+        Collections.sort(mavlinkFieldMethods, annotationComparator);
+
+        for(Method method: mavlinkFieldMethods) {
+            MavlinkFieldInfo fieldInfo = method.getAnnotation(MavlinkFieldInfo.class);
+            int length = fieldInfo.unitSize() * Math.max(fieldInfo.arraySize(), 1);
+            int offset = nextOffset.get();
+            nextOffset.set(offset + length);
+            length += offset;
+            try {
+                Object fieldValue = method.invoke(message);
+                if (fieldValue != null) {
+                    Class<?> fieldType = fieldValue.getClass();
+                    if (Integer.class.isAssignableFrom(fieldType)) {
+                        write((Integer) fieldValue, payload, offset, length);
+                    } else if (Long.class.isAssignableFrom(fieldType)) {
+                        write((Long) fieldValue, payload, offset, length);
+                    } else if (BigInteger.class.isAssignableFrom(fieldType)) {
+                        write((BigInteger) fieldValue, payload, offset, length);
+                    } else if (Float.class.isAssignableFrom(fieldType)) {
+                        write((Float) fieldValue, payload, offset, length);
+                    } else if (Double.class.isAssignableFrom(fieldType)) {
+                        write((Double) fieldValue, payload, offset, length);
+                    } else if (Enum.class.isAssignableFrom(fieldType)) {
+                        write((Enum) fieldValue, payload, offset, length);
+                    } else if (EnumValue.class.isAssignableFrom(fieldType)) {
+                        write((EnumValue<? extends Enum>) fieldValue, payload, offset, length);
+                    } else if (String.class.isAssignableFrom(fieldType)) {
+                        write((String) fieldValue, payload, offset, length);
+                    } else if (byte[].class.isAssignableFrom(fieldType)) {
+                        write((byte[]) fieldValue, payload, offset, length);
+                    } else {
+                        throw new MavlinkSerializationException("unrecognized field type " + fieldType.getName());
                     }
-                });
+                }
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw new IllegalStateException(e);
+            }
+        }
 
         return payload;
     }
@@ -111,9 +128,10 @@ public class ReflectionPayloadSerializer implements MavlinkPayloadSerializer {
     }
 
     private void write(Enum value, byte[] buffer, int offset, int length) {
-        MavlinkReflection.getEnumEntry(value)
-                .map(MavlinkEntryInfo::value)
-                .ifPresent(e -> write(e, buffer, offset, length));
+        MavlinkEntryInfo mavlinkEntryInfo = MavlinkReflection.getEnumEntry(value);
+        if(mavlinkEntryInfo != null) {
+            write(mavlinkEntryInfo.value(), buffer, offset, length);
+        }
     }
 
     private void write(EnumValue<? extends Enum> value, byte[] buffer, int offset, int length) {

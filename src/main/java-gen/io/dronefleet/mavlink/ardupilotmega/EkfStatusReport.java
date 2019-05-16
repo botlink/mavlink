@@ -219,14 +219,14 @@ public final class EkfStatusReport {
          * Flags. 
          */
         public final Builder flags(Enum... flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<EkfStatusFlags>create(flags));
         }
 
         /**
          * Flags. 
          */
         public final Builder flags(Collection<Enum> flags) {
-            return flags(EnumValue.create(flags));
+            return flags(EnumValue.<EkfStatusFlags>create(flags));
         }
 
         /**

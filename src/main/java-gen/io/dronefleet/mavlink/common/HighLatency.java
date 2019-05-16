@@ -575,14 +575,14 @@ public final class HighLatency {
          * Bitmap of enabled system modes. 
          */
         public final Builder baseMode(Enum... flags) {
-            return baseMode(EnumValue.create(flags));
+            return baseMode(EnumValue.<MavModeFlag>create(flags));
         }
 
         /**
          * Bitmap of enabled system modes. 
          */
         public final Builder baseMode(Collection<Enum> flags) {
-            return baseMode(EnumValue.create(flags));
+            return baseMode(EnumValue.<MavModeFlag>create(flags));
         }
 
         /**
@@ -623,14 +623,14 @@ public final class HighLatency {
          * The landed state. Is set to MAV_LANDED_STATE_UNDEFINED if landed state is unknown. 
          */
         public final Builder landedState(Enum... flags) {
-            return landedState(EnumValue.create(flags));
+            return landedState(EnumValue.<MavLandedState>create(flags));
         }
 
         /**
          * The landed state. Is set to MAV_LANDED_STATE_UNDEFINED if landed state is unknown. 
          */
         public final Builder landedState(Collection<Enum> flags) {
-            return landedState(EnumValue.create(flags));
+            return landedState(EnumValue.<MavLandedState>create(flags));
         }
 
         /**
@@ -849,14 +849,14 @@ public final class HighLatency {
          * GPS Fix type. 
          */
         public final Builder gpsFixType(Enum... flags) {
-            return gpsFixType(EnumValue.create(flags));
+            return gpsFixType(EnumValue.<GpsFixType>create(flags));
         }
 
         /**
          * GPS Fix type. 
          */
         public final Builder gpsFixType(Collection<Enum> flags) {
-            return gpsFixType(EnumValue.create(flags));
+            return gpsFixType(EnumValue.<GpsFixType>create(flags));
         }
 
         /**

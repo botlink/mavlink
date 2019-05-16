@@ -200,14 +200,14 @@ public final class MissionRequestInt {
          * Mission type. 
          */
         public final Builder missionType(Enum... flags) {
-            return missionType(EnumValue.create(flags));
+            return missionType(EnumValue.<MavMissionType>create(flags));
         }
 
         /**
          * Mission type. 
          */
         public final Builder missionType(Collection<Enum> flags) {
-            return missionType(EnumValue.create(flags));
+            return missionType(EnumValue.<MavMissionType>create(flags));
         }
 
         public final MissionRequestInt build() {
