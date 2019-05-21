@@ -213,7 +213,10 @@ public class MavlinkConnection {
             while ((packet = reader.next()) != null) {
                 // Get the dialect for the system that sent this packet. If we don't know which dialect it is,
                 // or we don't support the dialect of its autopilot, then we use the common dialect.
-                MavlinkDialect dialect = systemDialects.getOrDefault(packet.getSystemId(), COMMON_DIALECT);
+                MavlinkDialect dialect = systemDialects.get(packet.getSystemId());
+                if (dialect == null) {
+                    dialect = COMMON_DIALECT;
+                }
 
                 // If the packet is not supported by the dialect, then we drop the packet and continue.
                 // Unfortunately, because of the inadequate design of Mavlink's CRC validation which incorporates
