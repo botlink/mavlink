@@ -33,7 +33,7 @@ public class EnumValue<T extends Enum> {
 
     public static <T extends Enum> EnumValue<T> create(Class<T> enumType, int value) {
         if(MavlinkReflection.getEntryByValue(enumType, value) == null) {
-            return null;
+            return create(value);
         }
         return new EnumValue<>(value, MavlinkReflection.getEntryByValue(enumType, value));
     }
